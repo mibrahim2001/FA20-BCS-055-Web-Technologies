@@ -1,0 +1,155 @@
+body {
+  height: 1200px;
+}
+#container {
+  height: 1000px;
+  width: 800px;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  margin-bottom: 10px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#left-side {
+  height: 100%;
+  width: 30%;
+  background-color: #0180a1;
+  float: left;
+}
+
+#right-side {
+  height: 100%;
+  width: 67%;
+
+  float: right;
+}
+
+.img-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+#pfp {
+  width: 80%;
+}
+
+.section-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.info-sections {
+  width: 90%;
+  /* background-color: red; */
+  margin-top: 30px;
+  margin-left: 22px;
+  /* background-color: lightblue; */
+  height: 300px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.info-block {
+  width: 100%;
+  /* background-color: red; */
+}
+
+#about-me {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  flex-direction: row-reverse;
+  /* background-color: yellow; */
+}
+
+.heading-right {
+  width: 90%;
+  /* background-color: black; */
+}
+
+.heading-line {
+  width: 100%;
+  background-color: #2b9fc0;
+  height: 2px;
+}
+
+.bold-line {
+  width: 15%;
+  background-color: white;
+  height: 100%;
+}
+
+.plus-sign {
+  width: 10%;
+  /* background-color: blue; */
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  margin-top: 6px;
+}
+
+.info-details {
+  /* background-color: red; */
+  width: 85%;
+  margin-left: 20px;
+}
+
+.about-me-text {
+  color: white;
+  font-size: 13px;
+  font-weight: lighter;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  white-space: normal;
+}
+
+#contact {
+  margin-top: 50px;
+}
+
+.name-role {
+  margin-top: 60px;
+}
+
+#name {
+  margin-bottom: 0px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #0180a1;
+}
+#role {
+  margin-top: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+.blue-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #0180a1;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: 1px;
+}
