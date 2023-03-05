@@ -7,7 +7,7 @@ body {
 }
 #container {
   height: 1100px;
-  width: 800px;
+  width: 830px;
   margin-bottom: 10px;
   border-width: 1px;
   border-color: black;
@@ -305,4 +305,10 @@ body {
   background-color: #2b9fc0;
   height: 100%;
   border-radius: 20px;
+}
+
+@media only screen and (max-width: 830px) {
+  body {
+    display: block;
+  }
 }
