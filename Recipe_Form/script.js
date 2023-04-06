@@ -16,6 +16,14 @@ const getData = () => {
         <td><strong>${i + 1}</strong></td>
             <td>${response[i].title}</td>
             <td>${response[i].body}</td>
+            <td>
+            <button type="button" id="edit-${
+              response[i].id
+            }" class="btn btn-primary">Edit</button>
+            <button type="button" id="del-${
+              response[i].id
+            }" class="btn btn-danger">Delete</button>
+            </td>
             </tr>`;
         $("#table-body").append(row);
       }
