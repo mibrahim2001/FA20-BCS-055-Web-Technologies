@@ -7,11 +7,18 @@
   display: block;
 }
 
+h2 {
+  color: #8cc63e;
+  font-weight: bold;
+  font-size: 40px;
+}
+
 .logo {
   width: 100px;
   height: 100px;
   margin: 0 auto;
   display: block;
+  margin-left: 100px;
 }
 
 .red {
@@ -22,7 +29,78 @@
   height: 70px;
 }
 
-.navbar li {
-  font-weight: 500;
+.nav-link {
   color: black;
+  font-weight: 500;
+}
+
+.services {
+  margin-top: 50px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.services-icon {
+  border: 1px solid #8cc63e;
+  border-radius: 100%;
+  width: 100px;
+  padding: 13px;
+}
+
+.services li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.services li :hover {
+  cursor: pointer;
+}
+
+.services li p {
+  font-size: 12px;
+  margin: auto;
+}
+
+.my-btn {
+  background-color: #e40076;
+  width: 134px;
+  height: 40px;
+  border-radius: 30px;
+  border-color: #e40076;
+}
+
+.my-btn :hover {
+  background-color: #8cc63e;
+}
+
+.bundles {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.card {
+  height: 320px;
+}
+.card :hover {
+  cursor: pointer;
+}
+.card-title {
+  color: #e40076;
+  font-size: 14px;
+}
+
+.card-subtitle {
+  color: black;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
