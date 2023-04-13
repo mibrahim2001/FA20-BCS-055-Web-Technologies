@@ -21,10 +21,6 @@ h2 {
   margin-left: 100px;
 }
 
-.red {
-  background-color: red;
-}
-
 .my-navbar {
   height: 70px;
 }
@@ -57,6 +53,7 @@ h2 {
 
 .services li :hover {
   cursor: pointer;
+  color: #e40076;
 }
 
 .services li p {
@@ -103,4 +100,10 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.devices {
+  background-color: #f4f6f8;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
