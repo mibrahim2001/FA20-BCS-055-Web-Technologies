@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+/* navbar dropdown active on hover */
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+.red {
+  background-color: red;
+}
+
+.my-navbar {
+  height: 70px;
+}
+
+.navbar li {
+  font-weight: 500;
+  color: black;
+}
