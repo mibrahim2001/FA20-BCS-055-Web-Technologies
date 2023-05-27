@@ -1,75 +1,26 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Book = require("./models/book");
 const User = require("./models/user");
+const loginRouter = require("./routes/api/auth/loginRouter");
+const registerRouter = require("./routes/api/auth/registerRouter");
+
 var expressLayouts = require("express-ejs-layouts");
 let app = express();
-// app.use(expressLayouts);
+
+//middleware
 app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/books", require("./routes/api/books/booksRouter"));
-app.use("/api/toys", require("./routes/api/toys/toysRouter"));
-app.use("/", require("./routes/books"));
-
-app.get("/login", (req, res) => {
-  res.render("auth/auth_layout", { content: "./login" });
-});
-
-app.post("/register", async (req, res) => {
-  const { email, username, password, month, day, year } = req.body;
-
-  const dateOfBirth = new Date(`${year}-${month}-${day}`);
-
-  const user = new User({
-    email,
-    username,
-    password,
-    dateOfBirth,
-  });
-
-  try {
-    await user.save();
-    console.log("user saved");
-    res.status(201).redirect("/login");
-  } catch (e) {
-    console.log("user not saved");
-    res.status(400).send(e);
-  }
-});
-
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await User.findOne({ email, password });
-
-    if (!user) {
-      console.log(user);
-      return res.status(404).send("User not found");
-    }
-
-    res.send(user);
-  } catch (e) {
-    res.status(500).send(e);
-  }
-});
-
-app.get("/register", (req, res) => {
-  console.log("register get");
-  res.render("auth/auth_layout", { content: "./register" });
-});
-
-app.get("/contact-us", (req, res) => {
-  //   res.send("Hello");
-  res.render("contact-us");
-});
 app.get("/", (req, res) => {
   //   res.send("Hello");
   res.render("index");
 });
+
+// Set up the routes
+app.use("/login", loginRouter);
+app.use("/register", registerRouter);
 
 let port = 3000;
 app.listen(port, () => {
