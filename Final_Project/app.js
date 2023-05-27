@@ -47,7 +47,7 @@ app.post("/login", async (req, res) => {
     const user = await User.findOne({ email, password });
 
     if (!user) {
-      console.log("user not found");
+      console.log(user);
       return res.status(404).send("User not found");
     }
 
