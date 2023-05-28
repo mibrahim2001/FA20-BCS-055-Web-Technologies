@@ -1,5 +1,10 @@
+const { v4: uuidv4 } = require("uuid");
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    default: Math.floor(Math.random() * 9000) + 1000,
+  },
   email: {
     type: String,
     required: true,
@@ -10,7 +15,6 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   password: {

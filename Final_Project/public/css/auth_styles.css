@@ -95,14 +95,14 @@ body {
 }
 
 .form-control {
-  background-color: #1e1f22;
+  background-color: #1e1f22 !important;
   border-color: transparent;
-  color: white;
+  color: white !important;
   font-family: "Arial", "Helvetica", sans-serif;
 }
 .form-control:focus {
-  background-color: #1e1f22;
-  color: white;
+  background-color: #1e1f22 !important;
+  color: white !important;
 }
 
 .link {

@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user");
-const loginRouter = require("./routes/api/auth/loginRouter");
-const registerRouter = require("./routes/api/auth/registerRouter");
+const authRouter = require("./routes/api/auth/authRouter");
 
-var expressLayouts = require("express-ejs-layouts");
+// let expressLayouts = require("express-ejs-layouts");
 let app = express();
 
 //middleware
@@ -14,20 +13,20 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  //   res.send("Hello");
   res.render("index");
 });
 
 // Set up the routes
-app.use("/login", loginRouter);
-app.use("/register", registerRouter);
+app.use("/", authRouter);
 
+//start the server
 let port = 3000;
 app.listen(port, () => {
   //this is a call back function which will be executed when the express app started listening
   console.log(`App Listening on localhost:` + port);
 });
 
+//connect to the database
 let connectionString =
   "mongodb+srv://mibrahim37612:ibrahim123@cluster0.im6loid.mongodb.net/discord";
 mongoose
