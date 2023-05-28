@@ -34,6 +34,7 @@ router.post("/register", async (req, res) => {
     });
 
     await user.generateEncryptedPassword();
+    await user.generateUserId();
     await user.save();
 
     res.status(201).send(_.pick(user, ["_id", "email", "username", "userId"]));
