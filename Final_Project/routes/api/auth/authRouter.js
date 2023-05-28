@@ -26,15 +26,14 @@ router.post("/register", async (req, res) => {
       return res.status(400).send("User already exists");
     }
 
-    let encryptedPassword = await bcrypt.hash(password, 10);
-
     const user = new User({
       email,
       username,
-      password: encryptedPassword,
+      password,
       dateOfBirth,
     });
 
+    await user.generateEncryptedPassword();
     await user.save();
 
     res.status(201).send(_.pick(user, ["_id", "email", "username", "userId"]));
@@ -64,7 +63,10 @@ router.post("/login", async (req, res) => {
 
     const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
 
-    res.status(200).send(_.pick(user, ["_id", "email", "username", "userId"]));
+    res.status(200).send({
+      token: token,
+      user: _.pick(user, ["email", "username", "userId"]),
+    });
   } catch (e) {
     res.status(500).send(e);
   }
