@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const authRouter = require("./routes/api/auth/authRouter");
+const config = require("config");
 
 // let expressLayouts = require("express-ejs-layouts");
 let app = express();
@@ -27,8 +28,10 @@ app.listen(port, () => {
 });
 
 //connect to the database
-let connectionString =
-  "mongodb+srv://mibrahim37612:ibrahim123@cluster0.im6loid.mongodb.net/discord";
+// let connectionString =
+//   "mongodb+srv://mibrahim37612:ibrahim123@cluster0.im6loid.mongodb.net/discord";
+
+let connectionString = config.get("db");
 mongoose
   .connect(connectionString)
   .then(() => {

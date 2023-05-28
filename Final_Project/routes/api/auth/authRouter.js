@@ -4,6 +4,7 @@ const User = require("../../../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const _ = require("lodash");
+const config = require("config");
 
 router.get("/register", (req, res) => {
   console.log("register get");
@@ -60,6 +61,8 @@ router.post("/login", async (req, res) => {
     if (!isValid) {
       return res.status(400).send("Invalid password");
     }
+
+    const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
 
     res.status(200).send(_.pick(user, ["_id", "email", "username", "userId"]));
   } catch (e) {
