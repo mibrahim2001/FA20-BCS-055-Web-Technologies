@@ -27,6 +27,10 @@ app.listen(port, () => {
   console.log(`App Listening on localhost:` + port);
 });
 
+app.get("/channels", (req, res) => {
+  res.render("channels");
+});
+
 //connect to the database
 // let connectionString =
 //   "mongodb+srv://mibrahim37612:ibrahim123@cluster0.im6loid.mongodb.net/discord";
