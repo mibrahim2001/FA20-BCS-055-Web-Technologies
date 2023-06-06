@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.use("/", authRouter);
 
 //start the server
-let port = 3000;
+let port = 4000;
 app.listen(port, () => {
   //this is a call back function which will be executed when the express app started listening
   console.log(`App Listening on localhost:` + port);

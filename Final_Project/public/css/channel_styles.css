@@ -9,6 +9,7 @@
   --color-shadow: #1f2023;
   --color-hover: #3a3b3f;
   --color-user-area: #232428;
+  --color-icon: #80848e;
   font-family: GGsans;
 }
 
@@ -138,26 +139,33 @@ body {
 .private-channels {
   height: 100%;
   background-color: var(--color-channel);
-  width: 240px;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .find-convo {
-  height: 30px;
-  background-color: var(--color-navbar);
-  color: var(--color-gray);
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-convo .text {
   width: 90%;
   display: flex;
-
+  color: var(--color-gray);
   align-items: center;
   font-family: GGsans;
   font-size: 14px;
   font-weight: 200;
-  margin-top: 10px;
   border-radius: 5px;
   padding-left: 10px;
+  height: 30px;
+
+  background-color: var(--color-navbar);
 }
 
 .find-convo:hover {
@@ -166,8 +174,8 @@ body {
 
 .separator-shadow {
   width: 100%;
-  height: 2px;
-  margin-top: 10px;
+  height: 1.5px;
+  /* margin-top: 10px; */
   background-color: var(--color-shadow);
 }
 
@@ -306,4 +314,34 @@ body {
 .user-controls .icon:hover {
   background-color: var(--color-hover);
   cursor: pointer;
+}
+
+.friends-section {
+  /* background-color: red; */
+  height: 100%;
+  width: 100%;
+}
+
+.friends-section .navigation {
+  margin-top: 0px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.friends {
+  display: flex;
+  color: var(--color-icon);
+  align-items: center;
+}
+
+.friends .text {
+  color: white;
+  margin-left: 5px;
+}
+
+.friends .icon {
+  margin-top: 5px;
 }
