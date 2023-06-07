@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const authRouter = require("./routes/api/auth/authRouter");
 const config = require("config");
-
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+let connectionString = config.get("db");
 // let expressLayouts = require("express-ejs-layouts");
 let app = express();
 
@@ -12,6 +14,18 @@ app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  session({
+    secret: "some secret",
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: connectionString }),
+    cookie: {
+      user: { name: "hi" },
+      maxAge: 1000 * 60 * 60 * 60 * 24, //equals one day
+    },
+  })
+);
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -35,8 +49,7 @@ app.get("/channels", (req, res) => {
 // let connectionString =
 //   "mongodb+srv://mibrahim37612:ibrahim123@cluster0.im6loid.mongodb.net/discord";
 
-let connectionString = config.get("db");
-mongoose
+const clientPromise = mongoose
   .connect(connectionString)
   .then(() => {
     console.log("connected: " + connectionString);
@@ -44,3 +57,6 @@ mongoose
   .catch(() => {
     console.log("unable to connect");
   });
+
+console.log("client promise", clientPromise);
+//session handling
