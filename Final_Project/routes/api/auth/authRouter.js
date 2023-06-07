@@ -48,6 +48,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  //check if the user is already logged in
   const { email, password } = req.body;
 
   try {
@@ -62,11 +63,8 @@ router.post("/login", async (req, res) => {
       return res.status(400).send("Invalid password");
     }
 
-    const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
-    req.res.status(200).send({
-      token: token,
-      user: _.pick(user, ["email", "username", "userId"]),
-    });
+    req.session.user = _.omit(user, "password");
+    res.redirect("./channels");
   } catch (e) {
     res.status(500).send(e);
   }
