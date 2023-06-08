@@ -8,7 +8,7 @@ const getData = () => {
   console.log("getData called");
   //get data from the api
   $.ajax({
-    url: "http://127.0.0.1:4000/voucher",
+    url: "http://127.0.0.1:4000/api/voucher",
     method: "GET",
     success: (response) => {
       $("#table-loader").addClass("d-none");
@@ -44,7 +44,7 @@ const getData = () => {
 const handleDeleteBtnClick = (id) => {
   console.log("Delete button clicked", id);
   $.ajax({
-    url: `http://127.0.0.1:4000/voucher/${id}`,
+    url: `http://127.0.0.1:4000/api/voucher/${id}`,
     method: "DELETE",
     success: (response) => {
       //remove the row from the table
