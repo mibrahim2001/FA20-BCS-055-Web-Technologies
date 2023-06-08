@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
+
 app.use(
   session({
     secret: "some secret",
@@ -21,7 +22,6 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: connectionString }),
     cookie: {
-      user: { name: "hi" },
       maxAge: 1000 * 60 * 60 * 60 * 24, //equals one day
     },
   })

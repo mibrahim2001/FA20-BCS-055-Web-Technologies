@@ -1,0 +1,20 @@
+<h1>Sugar Level</h1>
+
+<div class="d-flex flex-column gap-3">
+  <% if (haveRecords) { %> <% for( let index = 0; index < records.length; index++ ) { %>
+  <form class="card" method="get" action="/deletesugarlevel/<%= records[index]._id %>">
+    <div class="card-header">
+      Record No: <%= index+1 %>
+      <span class="badge bg-primary">Type: <%= records[index].type %></span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Reading: <%= records[index].reading %></h5>
+      <p class="card-text">Mood: <%= records[index].mood %></p>
+      <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+  </form>
+  <% } %> <% } else { %>
+  <h2>No Records in Database</h2>
+  <% } %>
+</div>
+<a class="btn btn-primary mt-4" href="/sugarlevel">Add Sugar Level</a>

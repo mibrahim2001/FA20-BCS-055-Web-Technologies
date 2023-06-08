@@ -37,18 +37,24 @@ router.post("/register", async (req, res) => {
     await user.generateUserId();
     await user.save();
 
-    res.status(201).send(_.pick(user, ["_id", "email", "username", "userId"]));
+    res.redirect("/login");
+
+    // res.status(201).send(_.pick(user, ["_id", "email", "username", "userId"]));
   } catch (e) {
     res.status(400).send(e);
   }
 });
 
 router.get("/login", (req, res) => {
-  res.render("auth/auth_layout", { content: "./login" });
+  //check if the user is already logged in
+  if (req.session.user) {
+    res.redirect("/channels");
+  } else {
+    res.render("auth/auth_layout", { content: "./login" });
+  }
 });
 
 router.post("/login", async (req, res) => {
-  //check if the user is already logged in
   const { email, password } = req.body;
 
   try {
