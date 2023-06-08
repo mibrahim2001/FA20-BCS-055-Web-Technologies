@@ -56,9 +56,16 @@ $(document).ready(function () {
   });
 
   $("#logoutOption").click(function () {
+    console.log("logout option clicked");
     $.ajax({
       url: "/logout",
       type: "POST",
+      success: function (res) {
+        window.location.href = "/login";
+      },
+      error: function () {
+        alert("Failed to logout");
+      },
     });
   });
 });

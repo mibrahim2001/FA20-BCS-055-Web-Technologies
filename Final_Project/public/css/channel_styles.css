@@ -411,3 +411,8 @@ select {
 #deleteOption {
   color: red;
 }
+
+#logoutOption {
+  color: red;
+  padding-left: 10px;
+}
