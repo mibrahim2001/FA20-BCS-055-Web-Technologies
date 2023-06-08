@@ -3,9 +3,9 @@ const router = express.Router();
 const checkSessionAuth = require("../../../middleware/checkSessionAuth");
 const Server = require("../../../models/server");
 
-router.get("/channels", checkSessionAuth, (req, res) => {
+router.get("/channels", checkSessionAuth, async (req, res) => {
   const user = req.session.user;
-  const servers = Server.find({ owner: user._id });
+  const servers = await Server.find({ owner: user._id });
   res.render("channels/channels.ejs", { user, servers });
 });
 

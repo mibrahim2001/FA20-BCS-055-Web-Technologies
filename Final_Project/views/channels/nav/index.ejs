@@ -15,6 +15,22 @@
     <span class="tooltip">Direct Messages</span>
   </div>
   <div class="separator"></div>
+  <div class="servers-container">
+    <% for (let index = 0; index < servers.length; index++) { const serverName =
+    servers[index].name; const words = serverName.split(' '); let shorthand =
+    ''; for (let i = 0; i < words.length; i++) { shorthand +=
+    words[i][0].toLowerCase(); } %>
+    <div class="nav-btn logo-btn shorthand-text" id="<%= servers[index]._id %>">
+      <%= shorthand %><span class="tooltip"><%= servers[index].name %></span>
+    </div>
+    <% } %>
+  </div>
+
+  <div id="customMenu" class="custom-menu">
+    <div id="deleteOption" class="menu-option">Delete</div>
+    <div id="updateOption" class="menu-option">Update</div>
+  </div>
+
   <div
     type="button"
     class="nav-btn"
@@ -73,7 +89,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="/server" method="post">
             <p>Give your new server a personality with a name and type.</p>
             <div class="form-group">
               <label class="input-heading" for="exampleInputEmail1"
@@ -90,19 +106,22 @@
               <label class="input-heading" for="exampleInputEmail1"
                 >SERVER TYPE
               </label>
-              <div class="date-of-birth">
-                <select class="" id="monthSelect" name="month">
+              <div>
+                <select name="type">
                   <option selected disabled>Type</option>
                   <option value="friends">Friends or Family</option>
                   <option value="community">Community Or Club</option>
                 </select>
               </div>
             </div>
+            <button
+              type="submit"
+              id="submitBtn"
+              class="btn btn-primary submit-btn"
+            >
+              Create
+            </button>
           </form>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Create</button>
         </div>
       </div>
     </div>
