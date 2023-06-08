@@ -345,3 +345,25 @@ body {
 .friends .icon {
   margin-top: 5px;
 }
+
+.modal-text {
+  font-family: GGSans;
+  text-align: center;
+}
+
+.modal-header {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-heading {
+  font-size: 12px;
+  color: black;
+  font-weight: 600;
+}
+
+select {
+  height: 40px;
+  border-radius: 5px;
+}
