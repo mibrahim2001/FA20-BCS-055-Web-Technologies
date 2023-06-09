@@ -3,6 +3,7 @@ const router = express.Router();
 const Server = require("../../../models/server");
 const User = require("../../../models/user");
 const sessionAuth = require("../../../middleware/checkSessionAuth");
+const checkOwner = require("../../../middleware/checkOwner");
 
 router.post("/server", sessionAuth, async (req, res) => {
   console.log("server post");
@@ -60,7 +61,7 @@ router.get("/server/:id", sessionAuth, async (req, res) => {
   }
 });
 
-router.delete("/server/:id", sessionAuth, async (req, res) => {
+router.delete("/server/:id", sessionAuth, checkOwner, async (req, res) => {
   try {
     const id = req.params.id;
     const owner = req.session.user._id;
