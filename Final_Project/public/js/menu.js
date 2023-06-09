@@ -31,9 +31,41 @@ $(document).ready(function () {
     }
   });
 
+  // Event listener for the "Update" button
   $("#updateOption").click(function () {
-    // Handle update functionality
-    alert("Update option clicked");
+    var serverId = $("#customMenu").data("serverId");
+    $.ajax({
+      url: `/server/${serverId}`,
+      method: "GET",
+      success: function (data) {
+        // Open the modal
+        $("#updateModal").modal("show");
+
+        // Populate the form
+        $("#update-server-name-input").val(data.name);
+        $("#update-select").val(data.type);
+
+        $("#updateForm").submit(function (event) {
+          event.preventDefault();
+          var url = "/server/" + serverId;
+          $.ajax({
+            url: url,
+            type: "PUT",
+            data: $("#updateForm").serialize(),
+            success: function (data) {
+              console.log(data);
+              window.location.href = "/channels";
+            },
+            error: function (error) {
+              console.log("Error updating server:", error);
+            },
+          });
+        });
+      },
+      error: function (error) {
+        console.log("Error retrieving server data:", error);
+      },
+    });
   });
 
   // Hide the menu when clicked anywhere on the page
@@ -45,7 +77,7 @@ $(document).ready(function () {
 
   $("#settingIcon").on("contextmenu", function (event) {
     console.log("right-clicked");
-    event.preventDefault(); // Pr   event default right-click behavior
+    event.preventDefault();
 
     var menu = $("#logoutMenu");
     menu.css({

@@ -45,6 +45,21 @@ router.get("/server", async (req, res) => {
   }
 });
 
+router.get("/server/:id", async (req, res) => {
+  const serverId = req.params.id;
+  try {
+    const server = await Server.findById(serverId);
+
+    if (server) {
+      res.send(server);
+    } else {
+      res.send("No server found");
+    }
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
 router.delete("/server/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -64,7 +79,8 @@ router.delete("/server/:id", async (req, res) => {
   }
 });
 
-router.put("/servers/:id", async (req, res) => {
+router.put("/server/:id", async (req, res) => {
+  console.log("put route");
   const serverId = req.params.id;
 
   try {
@@ -79,7 +95,8 @@ router.put("/servers/:id", async (req, res) => {
     server.type = req.body.type || server.type;
 
     const updatedServer = await server.save();
-    res.json(updatedServer);
+    // console.log("from put", updatedServer);
+    res.send(updatedServer);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server update failed" });
