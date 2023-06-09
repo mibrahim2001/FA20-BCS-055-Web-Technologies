@@ -2,7 +2,7 @@ $(document).ready(function () {
   console.log("Hi from menu.js");
   $(".shorthand-text").on("contextmenu", function (event) {
     console.log("right-clicked");
-    event.preventDefault(); // Pr   event default right-click behavior
+    event.preventDefault();
 
     var menu = $("#customMenu");
     menu.css({

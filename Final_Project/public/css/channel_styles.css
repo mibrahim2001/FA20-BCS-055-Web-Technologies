@@ -58,6 +58,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  font-family: GGSans !important;
 }
 
 .side-nav {
@@ -335,15 +336,12 @@ body {
   display: flex;
   color: var(--color-icon);
   align-items: center;
+  margin-left: 10px;
 }
 
 .friends .text {
   color: white;
   margin-left: 5px;
-}
-
-.friends .icon {
-  margin-top: 5px;
 }
 
 .modal-text {
@@ -359,7 +357,7 @@ body {
 
 .input-heading {
   font-size: 12px;
-  color: black;
+  color: #4e5058;
   font-weight: 600;
 }
 
@@ -415,4 +413,9 @@ select {
 #logoutOption {
   color: red;
   padding-left: 10px;
+}
+
+form .text {
+  color: #4e5058;
+  font-weight: 200;
 }

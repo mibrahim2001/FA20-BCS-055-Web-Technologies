@@ -31,7 +31,7 @@ router.post("/server", sessionAuth, async (req, res) => {
   }
 });
 
-router.get("/server", async (req, res) => {
+router.get("/server", sessionAuth, async (req, res) => {
   try {
     const servers = await Server.find({ owner: req.user._id });
 
@@ -45,7 +45,7 @@ router.get("/server", async (req, res) => {
   }
 });
 
-router.get("/server/:id", async (req, res) => {
+router.get("/server/:id", sessionAuth, async (req, res) => {
   const serverId = req.params.id;
   try {
     const server = await Server.findById(serverId);
@@ -60,7 +60,7 @@ router.get("/server/:id", async (req, res) => {
   }
 });
 
-router.delete("/server/:id", async (req, res) => {
+router.delete("/server/:id", sessionAuth, async (req, res) => {
   try {
     const id = req.params.id;
     const owner = req.session.user._id;
@@ -79,7 +79,7 @@ router.delete("/server/:id", async (req, res) => {
   }
 });
 
-router.put("/server/:id", async (req, res) => {
+router.put("/server/:id", sessionAuth, async (req, res) => {
   console.log("put route");
   const serverId = req.params.id;
 
