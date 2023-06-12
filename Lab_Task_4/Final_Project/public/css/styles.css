@@ -1,0 +1,457 @@
+@font-face {
+  font-family: GGsans;
+  src: url(/assets/ggsans-Normal.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: GGsans;
+  src: url(/assets/ggsans-Medium.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: GGsans;
+  src: url(/assets/ggsans-Semibold.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: GGsans;
+  src: url(/assets/ggsans-Bold.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: GGsans;
+  src: url(/assets/ggsans-ExtraBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: ClimateCrisis;
+  src: url(/assets/ClimateCrisis.ttf);
+}
+
+body {
+  margin: 0;
+  font-family: GGsans;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  color: white;
+}
+#download:hover .dropdown-menu {
+  display: block;
+}
+.nav-bar {
+  display: flex;
+  background-color: #404eed;
+  height: 81px;
+  width: 80%;
+  justify-self: center;
+  /* background-color: red; */
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.main {
+  display: flex;
+  background-color: #404eed;
+  height: 630px;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.logo {
+  color: white;
+}
+
+.nav-list {
+  display: flex;
+  width: 55%;
+  margin-left: -50px;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-list li {
+  display: inline;
+  list-style-type: none;
+  color: white;
+  font-weight: 400;
+}
+
+.nav-list li:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  height: 38px;
+  width: 65px;
+  background-color: white;
+  border-radius: 20px;
+  border-style: none;
+  margin-right: 30px;
+  font-weight: 400;
+  font-family: GGsans;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+}
+
+.login-btn a:hover {
+  color: #5865f2;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.hero {
+  width: 50%;
+  min-height: 50%;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 48px;
+  font-weight: 50;
+  letter-spacing: 3px;
+  text-align: center;
+  font-family: ClimateCrisis;
+}
+
+.hero p {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 50px;
+}
+
+.buttons-container {
+  /* background-color: red; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.custom-button {
+  height: 56px;
+  width: 300px;
+  background-color: white;
+  border-radius: 28px;
+  /* font-weight: 600; */
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: GGsans;
+  /* font-weight: bold; */
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  box-shadow: 0 8px 15px rgb(0 0 0 / 20%);
+}
+.download-icon {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.btn-light {
+  background-color: white;
+}
+.btn-light:hover {
+  color: #5865f2;
+}
+
+.btn-dark {
+  background-color: #23272a;
+  color: white;
+}
+
+.hero-img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 630px;
+  z-index: 0;
+}
+
+.img-hero-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 500px;
+}
+
+.img-hero-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 500px;
+}
+
+.img-hero-center {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 1480px) {
+  .img-hero-left {
+    width: 400px;
+  }
+  .img-hero-right {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  main {
+    align-items: flex-start;
+    margin-left: 50px;
+  }
+  .hero {
+    margin-top: 30px;
+  }
+  .buttons-container {
+    flex-direction: column;
+    margin-top: 20px;
+    height: 150px;
+    justify-content: space-around;
+  }
+  .img-hero-left {
+    display: none;
+  }
+  .img-hero-right {
+    width: 500px;
+  }
+
+  .hero h1,
+  p {
+    text-align: left;
+  }
+
+  .nav-bar ul {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .hero {
+    width: 90%;
+    min-height: 25%;
+  }
+  .hero h1 {
+    font-size: 2.2em;
+  }
+  .hero p {
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: 20px;
+  }
+  .main {
+    height: 800px;
+  }
+  .hero-img-container {
+    height: 800px;
+  }
+  .img-hero-right {
+    right: 20px;
+  }
+  .nav-bar ul {
+    display: none;
+  }
+}
+
+#first-section {
+  margin-top: 120px;
+  align-items: center;
+}
+
+.section-heading {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.section-description {
+  font-size: 20px;
+}
+
+p {
+  font-weight: 100;
+}
+
+.row {
+  width: 100%;
+  justify-content: center;
+}
+
+.section-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  margin-left: 2em;
+}
+
+.even-container {
+  margin-top: 120px;
+  background-color: #f6f6f6;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 680px;
+}
+
+.even-section {
+  flex-direction: row-reverse;
+
+  width: 1320px;
+}
+
+.odd-container {
+  margin-top: 120px;
+}
+
+.section4-heading {
+  font-size: 32px;
+  font-family: ClimateCrisis;
+  text-align: center;
+  margin-top: 50px;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+}
+
+.section4-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.section4-container .row {
+  display: flex;
+  justify-content: center;
+}
+
+.section4-img {
+  width: 60%;
+}
+
+.section4-description {
+  width: 70%;
+  text-align: center;
+  margin-top: 24px;
+  line-height: 1.625;
+}
+
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.call-to-action h2 {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.call-to-action img {
+  width: 600px;
+  position: absolute;
+  overflow: hidden;
+}
+.blue {
+  background-color: #5865f2;
+  color: white;
+  margin-top: 20px;
+}
+.blue:hover {
+  color: white;
+  background-color: #848ef5;
+}
+@media screen and (max-width: 700px) {
+  .section-right {
+    margin-left: 3em;
+  }
+  .section-heading {
+    font-size: 20px;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .section-img-container {
+    margin-left: 25px;
+  }
+
+  .section-description {
+    font-size: 16px;
+  }
+  .even-container {
+    min-height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: flex-start;
+  }
+  .even-section {
+    width: 100%;
+  }
+
+  .section4-container {
+    padding-left: 20px;
+  }
+  .section4-heading {
+    font-size: 1em;
+    text-align: left;
+  }
+  .section4-img {
+    width: 100%;
+  }
+  .section4-description {
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+    line-height: 1.625;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
